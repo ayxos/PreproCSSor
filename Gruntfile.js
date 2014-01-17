@@ -2,37 +2,33 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    // concat: {
-    //   options: {
-    //     separator: ';'
-    //   },
-    //   dist: {
-    //     src: ['src/**/*.js'],
-    //     dest: 'dist/<%= pkg.name %>.js'
-    //   }
-    // },
-    // uglify: {
-    //   options: {
-    //     banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
-    //   },
-    //   dist: {
-    //     files: {
-    //       'dist/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>']
+
+    // connect: {
+    //   server: {
+    //     options: {
+    //       port: 8001,
+    //       hostname: 'localhost',
+    //       base: 'dest',
+    //       keepalive: true
     //     }
     //   }
     // },
-    // jshint: {
-    //   files: ['Gruntfile.js', 'src/**/*.js', 'test/**/*.js'],
-    //   options: {
-    //     // options here to override JSHint defaults
-    //     globals: {
-    //       jQuery: true,
-    //       console: true,
-    //       module: true,
-    //       document: true
-    //     }
-    //   }
-    // },
+
+    shell: {
+      pythonServer: {
+        options: {
+          stdout: true
+        },
+        command: 'python server.py',
+        keepalive: true
+      }
+//      pythonStopServer: {
+//        options: {
+//          stdout: true
+//        },
+//        command: 'python server.py QUIT'
+//      },
+    },
 
     clean: ['static'],
 
@@ -45,7 +41,7 @@ module.exports = function(grunt) {
         //   ext: '.html'
         // }]
         files: {
-          'dest/html/ej1.html': ['src/jade/ej1.jade']
+          'dest/index.html': ['src/jade/index.jade']
         }
       }
     },
@@ -87,7 +83,15 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-stylus');
   // Remove files
   grunt.loadNpmTasks('grunt-contrib-clean');
+  // executing shell commands
+  grunt.loadNpmTasks('grunt-shell');
+  // executing connect server commands
+  grunt.loadNpmTasks('grunt-contrib-connect');
 
+  //server task to enable/init a server
+  grunt.registerTask('server', ['clean', 'jade', 'stylus', 'connect', 'watch']);
+  //server task to enable/init a server
+  grunt.registerTask('serpy', ['shell:pythonServer']);
   //default task
   grunt.registerTask('default', ['clean', 'jade', 'stylus']);
 

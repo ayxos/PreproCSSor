@@ -13,6 +13,8 @@
     "grunt-contrib-uglify":"*",
     "grunt-contrib-jshint":"*",
     "grunt-contrib-concat":"*",
-    "grunt-contrib-clean":"*"
+    "grunt-contrib-clean":"*",
+    "grunt-shell":"*",
+    "grunt-contrib-connect":"*"
   }
 }
