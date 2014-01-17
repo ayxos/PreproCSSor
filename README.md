@@ -3,6 +3,14 @@ preproCSSor
 
 A simple grunt configuration to work with stylus and jade
 
+What's Jade?
+http://jade-lang.com/
+
+What's Stylus
+http://learnboost.github.io/stylus/
+
+
+
 fisrt of all, you must install python and node.js framework
 
 english version: https://github.com/joyent/node/wiki/installation
