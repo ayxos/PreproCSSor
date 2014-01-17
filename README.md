@@ -17,22 +17,24 @@ cd node-v0.6.18
 ```
 
 on Mac:
-Using a package
-```
-http://nodejs.org/#download
-```
-Using Fink:
-```
-fink install nodejs
-```
-Using homebrew:
-```
-brew install node
-```
-Using macports:
-```
-port install nodejs  
-```
+  Using a package
+  ```
+  http://nodejs.org/#download
+  ```
+  Using Fink:
+  ```
+  fink install nodejs
+  ```
+  Using homebrew:
+  ```
+  brew install node
+  ```
+  Using macports:
+  ```
+  port install nodejs  
+  ```
+On windows:
+  just download the exe file from nodejs.org
 
 Once installed, package.json is THE file that tells node which node packages it should install through npm.
 
