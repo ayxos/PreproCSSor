@@ -3,31 +3,31 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
-    // connect: {
-    //   server: {
-    //     options: {
-    //       port: 8001,
-    //       hostname: 'localhost',
-    //       base: 'dest',
-    //       keepalive: true
-    //     }
-    //   }
-    // },
+    connect: {
+      server: {
+        options: {
+          port: 8001,
+          hostname: 'localhost',
+          base: 'dest',
+          keepalive: true
+        }
+      }
+    },
 
     shell: {
-      pythonServer: {
+      startServer: {
         options: {
           stdout: true
         },
         command: 'python server.py',
         keepalive: true
-      }
-//      pythonStopServer: {
-//        options: {
-//          stdout: true
-//        },
-//        command: 'python server.py QUIT'
-//      },
+      },
+      stopServer: {
+        options: {
+          stdout: true
+        },
+        command: 'fuser -k 8002/tcp'
+      }      
     },
 
     clean: ['static'],
@@ -88,11 +88,13 @@ module.exports = function(grunt) {
   // executing connect server commands
   grunt.loadNpmTasks('grunt-contrib-connect');
 
+  // //server task to enable/init a server
+  // grunt.registerTask('server', ['clean', 'jade', 'stylus', 'connect', 'watch']);
   //server task to enable/init a server
-  grunt.registerTask('server', ['clean', 'jade', 'stylus', 'connect', 'watch']);
+  grunt.registerTask('pyserver', ['shell:startServer']);
   //server task to enable/init a server
-  grunt.registerTask('serpy', ['shell:pythonServer']);
+  grunt.registerTask('pystop', ['shell:stopServer']);  
   //default task
-  grunt.registerTask('default', ['clean', 'jade', 'stylus']);
+  grunt.registerTask('default', ['clean', 'jade', 'stylus', 'shell:pythonServer']);
 
 };
