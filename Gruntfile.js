@@ -3,6 +3,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
+    //Create a simple Server using connect plugin
     connect: {
       server: {
         options: {
@@ -15,6 +16,7 @@ module.exports = function(grunt) {
     },
 
     shell: {
+      //Create a simple Server using python simplehttpserver command
       startServer: {
         options: {
           stdout: true
@@ -22,13 +24,23 @@ module.exports = function(grunt) {
         command: 'python server.py',
         keepalive: true
       },
+      //STOP a simple Server using python simplehttpserver command
       stopServer: {
         options: {
           stdout: true
         },
         command: 'fuser -k 8002/tcp'
-      }      
+      },
+      //Create a complex server using node.js
+      node: {
+        options: {
+          stdout: true
+        },
+        command: 'node server.js'
+      },
     },
+
+
 
     clean: ['static'],
 
@@ -88,13 +100,15 @@ module.exports = function(grunt) {
   // executing connect server commands
   grunt.loadNpmTasks('grunt-contrib-connect');
 
-  // //server task to enable/init a server
-  // grunt.registerTask('server', ['clean', 'jade', 'stylus', 'connect', 'watch']);
-  //server task to enable/init a server
+
+  //server task to enable/init a python server
   grunt.registerTask('pyserver', ['shell:startServer']);
-  //server task to enable/init a server
+  //server task to disable a python server
   grunt.registerTask('pystop', ['shell:stopServer']);  
+  //server task to enable/init a node server
+  grunt.registerTask('nodeserver', ['shell:node']);
+
   //default task
-  grunt.registerTask('default', ['clean', 'jade', 'stylus', 'shell:pythonServer']);
+  grunt.registerTask('default', ['clean', 'jade', 'stylus']);
 
 };
