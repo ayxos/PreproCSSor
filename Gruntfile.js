@@ -47,7 +47,8 @@ module.exports = function(grunt) {
     jade: {
       html: {
         // files: [{
-        //   expand: false,
+        //   expand: true,
+        //   cwd: 'src/jade',
         //   src: ['src/jade/*.jade'],
         //   dest: 'dest/html/',
         //   ext: '.html'
@@ -61,7 +62,7 @@ module.exports = function(grunt) {
     stylus: {
       compile: {
         files: {
-          'dest/css/styl.min.css': ['src/styl/stylesheet.styl']
+          'dest/css/styl.min.css': ['src/styl/*.styl']
         }
       }
     },
