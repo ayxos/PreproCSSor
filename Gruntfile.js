@@ -40,23 +40,22 @@ module.exports = function(grunt) {
       },
     },
 
-
-
     clean: ['static'],
 
     jade: {
-      html: {
-        // files: [{
-        //   expand: true,
-        //   cwd: 'src/jade',
-        //   src: ['src/jade/*.jade'],
-        //   dest: 'dest/html/',
-        //   ext: '.html'
-        // }]
-        files: {
-          'dest/index.html': ['src/jade/index.jade']
+        compile: {
+            options: {
+                client: false,
+                pretty: true
+            },
+            files: [ {
+              cwd: "src/jade",
+              src: "**/*.jade",
+              dest: "dest",
+              expand: true,
+              ext: ".html"
+            } ]
         }
-      }
     },
 
     stylus: {
