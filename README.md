@@ -6,8 +6,14 @@ A simple grunt configuration to work with both stylus and jade
 What's Jade?
 http://jade-lang.com/
 
+try it!
+http://html2jade.aaron-powell.com/
+
 What's Stylus
 http://learnboost.github.io/stylus/
+
+try it!
+http://css2stylus.com/
 
 Fisrt of all, you must install python and the node.js framework
 
