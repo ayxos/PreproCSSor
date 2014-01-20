@@ -63,7 +63,7 @@ module.exports = function(grunt) {
         options: {
           linenos: true,
           compress: false
-        },        
+        },
         files: {
           'dest/css/styl.css': ['src/styl/*.styl']
         }
@@ -76,7 +76,7 @@ module.exports = function(grunt) {
           'dest/css/styl.min.css': [ 'dest/css/styl.css' ]
         }
       }
-    },    
+    },
 
     watch: {
       options: {
@@ -118,7 +118,7 @@ module.exports = function(grunt) {
   //server task to enable/init a python server
   grunt.registerTask('pyserver', ['shell:startServer']);
   //server task to disable a python server
-  grunt.registerTask('pystop', ['shell:stopServer']);  
+  grunt.registerTask('pystop', ['shell:stopServer']);
   //server task to enable/init a node server
   grunt.registerTask('nodeserver', ['shell:node']);
 

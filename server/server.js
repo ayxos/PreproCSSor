@@ -11,4 +11,4 @@ http.createServer(function(request,response){
 	response.write("This server has been created using node.js, also this line has been inserted using write command");
 	response.end(index);
 }).listen(PORT);
-sys.puts("Server Running on port " + PORT);	
+sys.puts("Server Running on port " + PORT);
