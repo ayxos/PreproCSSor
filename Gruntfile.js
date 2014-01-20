@@ -21,8 +21,7 @@ module.exports = function(grunt) {
         options: {
           stdout: true
         },
-        command: 'python server/server.py',
-        keepalive: true
+        command: 'python server/server.py'
       },
       //STOP a simple Server using python simplehttpserver command
       stopServer: {
