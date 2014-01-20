@@ -4,7 +4,7 @@ import SimpleHTTPServer, BaseHTTPServer, httplib
 import SocketServer
 
 # Now change the directory
-os.chdir("dest")
+os.chdir("../dest")
 
 PORT = 8002
 

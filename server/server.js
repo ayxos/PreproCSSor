@@ -1,7 +1,7 @@
 var sys = require("sys");
 var http = require("http");
 var fs = require('fs');
-var index = fs.readFileSync('dest/index.html');
+var index = fs.readFileSync('../dest/index.html');
 
 var PORT = 8003;
 
