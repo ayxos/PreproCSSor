@@ -60,11 +60,23 @@ module.exports = function(grunt) {
 
     stylus: {
       compile: {
+        options: {
+          linenos: true,
+          compress: false
+        },        
         files: {
-          'dest/css/styl.min.css': ['src/styl/*.styl']
+          'dest/css/styl.css': ['src/styl/*.styl']
         }
       }
     },
+
+    cssmin: {
+      build: {
+        files: {
+          'dest/css/styl.min.css': [ 'dest/css/styl.css' ]
+        }
+      }
+    },    
 
     watch: {
       options: {
@@ -93,6 +105,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jade');
   // Compile Stylus style sheets to CSS
   grunt.loadNpmTasks('grunt-contrib-stylus');
+  // Compress & minify CSS
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
   // Remove files
   grunt.loadNpmTasks('grunt-contrib-clean');
   // executing shell commands
@@ -109,6 +123,6 @@ module.exports = function(grunt) {
   grunt.registerTask('nodeserver', ['shell:node']);
 
   //default task
-  grunt.registerTask('default', ['clean', 'jade', 'stylus']);
+  grunt.registerTask('default', ['clean', 'jade', 'stylus', 'cssmin']);
 
 };
