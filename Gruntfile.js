@@ -119,7 +119,7 @@ module.exports = function(grunt) {
   //server task to disable a python server
   grunt.registerTask('pystop', ['shell:stopServer']);
   //server task to enable/init a node server
-  grunt.registerTask('nodeserver', ['shell:node']);
+  grunt.registerTask('nodeserver', ['clean', 'jade', 'stylus', 'cssmin', 'shell:node']);
 
   //default task
   grunt.registerTask('default', ['clean', 'jade', 'stylus', 'cssmin']);
