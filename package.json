@@ -3,8 +3,7 @@
   "private": true,
   "name": "HTML_basic",
   "description": "HTML5_styl_jade",
-  "version": "0.1.8",
-  "dependencies": {},
+  "version": "0.3",
   "devDependencies": {
     "grunt": "*",
     "grunt-contrib-watch": "*",
