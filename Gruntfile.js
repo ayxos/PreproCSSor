@@ -8,7 +8,7 @@ module.exports = function(grunt) {
       server: {
         options: {
           port: 8001,
-          hostname: 'localhost',
+          hostname: '*',
           base: 'dest',
           keepalive: true
         }
@@ -16,20 +16,6 @@ module.exports = function(grunt) {
     },
 
     shell: {
-      //Create a simple Server using python simplehttpserver command
-      startServer: {
-        options: {
-          stdout: true
-        },
-        command: 'python server/server.py'
-      },
-      //STOP a simple Server using python simplehttpserver command
-      stopServer: {
-        options: {
-          stdout: true
-        },
-        command: 'fuser -k 8002/tcp'
-      },
       //Create a complex server using node.js
       node: {
         options: {
@@ -113,11 +99,6 @@ module.exports = function(grunt) {
   // executing connect server commands
   grunt.loadNpmTasks('grunt-contrib-connect');
 
-
-  //server task to enable/init a python server
-  grunt.registerTask('pyserver', ['shell:startServer']);
-  //server task to disable a python server
-  grunt.registerTask('pystop', ['shell:stopServer']);
   //server task to enable/init a node server
   grunt.registerTask('nodeserver', ['clean', 'jade', 'stylus', 'cssmin', 'shell:node']);
 
