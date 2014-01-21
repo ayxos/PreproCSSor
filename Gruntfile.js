@@ -15,16 +15,6 @@ module.exports = function(grunt) {
       }
     },
 
-    shell: {
-      //Create a complex server using node.js
-      node: {
-        options: {
-          stdout: true
-        },
-        command: 'node server/server.js'
-      },
-    },
-
     clean: ['static'],
 
     jade: {
@@ -98,9 +88,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-shell');
   // executing connect server commands
   grunt.loadNpmTasks('grunt-contrib-connect');
-
-  //server task to enable/init a node server
-  grunt.registerTask('nodeserver', ['clean', 'jade', 'stylus', 'cssmin', 'shell:node']);
 
   //default task
   grunt.registerTask('default', ['clean', 'jade', 'stylus', 'cssmin']);
