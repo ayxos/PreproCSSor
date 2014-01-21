@@ -20,7 +20,7 @@ var libpath = require('path'),
     mime = require('mime');
 
 var path = "dest";
-var port = 8003;
+var port = 8001;
 
 http.createServer(function (request, response) {
 
