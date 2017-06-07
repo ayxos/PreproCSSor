@@ -1,6 +1,8 @@
 preproCSSor
 =============
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/ayxos/PreproCSSor.svg)](https://greenkeeper.io/)
+
 A simple grunt configuration to work with both stylus and jade
 
 What's Jade?
